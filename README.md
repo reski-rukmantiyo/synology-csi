@@ -100,7 +100,7 @@ csc identity plugin-info -e tcp://127.0.0.1:10000
 csc controller create-volume \
   --req-bytes 2147483648 \
   -e tcp://127.0.0.1:10000 \
-  test-volume
+  test-volume \
 "8.1" 2147483648 "iqn"="iqn.2000-01.com.synology:kube-csi-test-volume" "mappingIndex"="1" "targetID"="8"
 ```
 
