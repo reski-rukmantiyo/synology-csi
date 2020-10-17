@@ -1,0 +1,23 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+ name: test-claim-blun-delete
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: synology-iscsi-storage-blun-delete
+  resources:
+    requests:
+      storage: 1Mi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+ name: test-claim-blun-thick-delete
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: synology-iscsi-storage-blun-thick-delete
+  resources:
+    requests:
+      storage: 1Mi
