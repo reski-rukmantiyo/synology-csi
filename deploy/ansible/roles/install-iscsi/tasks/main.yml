@@ -1,0 +1,43 @@
+---
+- name: Update apt cache for open-iscsi Installation.
+  apt:
+    update_cache: yes
+    state: present
+  become: yes
+
+- name: Install 
+  apt:
+    name:
+      - open-iscsi
+    state: present
+  become: yes
+
+- name: Install snap
+  shell: >
+    snap install go --classic
+  args:
+    warn: false
+  become: yes
+
+- name: Check for synology-csi folder.
+  stat:
+    path: "/var/lib/kubelet/plugins/csi.synology.com/"
+  register: csi_synology_folder
+  become: yes
+
+- name: Create synology-csi folder if not exists.
+  file:
+    path: "/var/lib/kubelet/plugins/csi.synology.com/"
+    state: directory
+    mode: 0755
+    group: root
+    owner: root
+  when: csi_synology_folder.stat.exists == false
+  become: yes
+
+- name: Download Synology CSI Driver file
+  shell: >
+    curl -L0 {{ download_csi_url }} > /var/lib/kubelet/plugins/csi.synology.com/synology-csi-driver 
+  args:
+    warn: false
+  become: yes
