@@ -2,9 +2,6 @@
 
 Make sure that `iscsiadm` is installed on all the nodes where you want this attacher to run.
 
-
-```
-
 # Deploy
 
 ## Ensure Kubernetes Cluster is Configured for CSI Drivers
