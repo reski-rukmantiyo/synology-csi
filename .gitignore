@@ -6,3 +6,4 @@ bin/
 go.sum
 
 .history
+examples/syno-config*
