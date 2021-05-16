@@ -37,8 +37,6 @@ More on Synology details in docs folder
 
  At this point you should be able to deploy persistent volume claims with the new storage class.
 
-
-
 # Documentation
 
 More Documentations is on Docs Folder
