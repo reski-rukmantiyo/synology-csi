@@ -13,7 +13,7 @@ metadata:
 rules:
   - apiGroups: [""]
     resources: ["pods"]
-    verbs: ["list"]
+    verbs: ["list","get","watch"]
   - apiGroups: [""]
     resources: ["events"]
     verbs: ["get", "list", "watch", "create", "update", "patch"]
@@ -99,7 +99,7 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: rrukmantiyo/synology-csi:v1.0.0-kubernetes-1.18.0
+          image: rrukmantiyo/synology-csi:v1.0.1
           args:
             - --nodeid
             - NotUsed

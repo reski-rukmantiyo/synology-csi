@@ -113,7 +113,7 @@ spec:
           securityContext:
             privileged: true
           imagePullPolicy: Always
-          image: rrukmantiyo/synology-csi:v1.0.0-kubernetes-1.18.0
+          image: rrukmantiyo/synology-csi:v1.0.1
           args:
             - --nodeid=$(KUBE_NODE_NAME)
             - --endpoint=$(CSI_ENDPOINT)
