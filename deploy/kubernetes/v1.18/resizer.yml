@@ -12,6 +12,9 @@ metadata:
   name: csi-synology-resizer-role
 rules:
   - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["list"]
+  - apiGroups: [""]
     resources: ["events"]
     verbs: ["get", "list", "watch", "create", "update", "patch"]
   - apiGroups: [""]
@@ -79,7 +82,7 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: quay.io/k8scsi/csi-resizer:v0.5.0
+          image: quay.io/k8scsi/csi-resizer:v1.1.0
           args:
             - --v=5
             - --csi-address=$(ADDRESS)
@@ -96,7 +99,7 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: jparklab/synology-csi:v1.0.0-kubernetes-1.18.0
+          image: rrukmantiyo/synology-csi:v1.0.0-kubernetes-1.18.0
           args:
             - --nodeid
             - NotUsed

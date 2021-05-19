@@ -46,9 +46,8 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: quay.io/k8scsi/csi-provisioner:v1.6.0
+          image: quay.io/k8scsi/csi-provisioner:v2.1.2
           args:
-            - --provisioner=csi.synology.com
             - --timeout=60s
             - --csi-address=$(ADDRESS)
             - --v=5
@@ -66,7 +65,7 @@ spec:
             capabilities:
               add: ["SYS_ADMIN"]
             allowPrivilegeEscalation: true
-          image: jparklab/synology-csi:v1.0.0-kubernetes-1.18.0
+          image: rrukmantiyo/synology-csi:v1.0.0-kubernetes-1.18.0
           args :
             - --nodeid
             - NotUsed
